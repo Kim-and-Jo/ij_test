@@ -1,7 +1,6 @@
 package atoz.member.service.impl;
 
 import atoz.cmm.ValidationForm;
-import atoz.member.mapper.MemberMapper;
 import atoz.member.model.LoginModel;
 import atoz.member.model.MemberModel;
 import atoz.member.service.MemberService;

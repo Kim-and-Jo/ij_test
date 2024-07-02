@@ -11,50 +11,51 @@ import java.util.List;
 @Service
 public class CodeService {
 
-    @Autowired
-    CodeMapper mapper;
+  @Autowired
+  CodeMapper mapper;
 
-    public List<CodeGroupModel> codeGroupList() throws Exception {
-        return mapper.codeGroupList();
-    }
 
-    public CodeGroupModel selectCodeGroup(int groupNum) throws Exception {
-        return mapper.selectCodeGroup(groupNum);
-    }
+  public List<CodeGroupModel> codeGroupList() throws Exception {
+    return mapper.codeGroupList();
+  }
 
-    public List<CodeModel> selectCodeList(int groupNum) throws Exception {
-        return mapper.selectCodeList(groupNum);
-    }
+  public CodeGroupModel selectCodeGroup(int groupNum) throws Exception {
+    return mapper.selectCodeGroup(groupNum);
+  }
 
-    public CodeModel selectCode(int codeNum) throws Exception {
-        return mapper.selectCode(codeNum);
-    }
+  public List<CodeModel> selectCodeList(int groupNum) throws Exception {
+    return mapper.selectCodeList(groupNum);
+  }
 
-    public int updateCodeGroup(CodeGroupModel model) throws Exception {
-        return mapper.updateCodeGroup(model);
-    }
+  public CodeModel selectCode(int codeNum) throws Exception {
+    return mapper.selectCode(codeNum);
+  }
 
-    public int updateCode(CodeModel model) throws Exception {
-        return mapper.updateCode(model);
-    }
+  public int updateCodeGroup(CodeGroupModel model) throws Exception {
+    return mapper.updateCodeGroup(model);
+  }
 
-    public int insertCodeGroup(CodeGroupModel model) throws Exception {
-        return mapper.insertCodeGroup(model);
-    }
+  public int updateCode(CodeModel model) throws Exception {
+    return mapper.updateCode(model);
+  }
 
-    public int insertCode(CodeModel model) throws Exception {
-        return mapper.insertCode(model);
-    }
+  public int insertCodeGroup(CodeGroupModel model) throws Exception {
+    return mapper.insertCodeGroup(model);
+  }
 
-    public int deleteCodeGroup(CodeGroupModel model) throws Exception {
-        return mapper.deleteCodeGroup(model);
-    }
+  public int insertCode(CodeModel model) throws Exception {
+    return mapper.insertCode(model);
+  }
 
-    public int deleteCode(CodeModel model) throws Exception {
-        return mapper.deleteCode(model);
-    }
+  public int deleteCodeGroup(CodeGroupModel model) throws Exception {
+    return mapper.deleteCodeGroup(model);
+  }
 
-    public int sortCode(int code, int sort) throws Exception {
-        return mapper.sortCode( code,  sort);
-    }
+  public int deleteCode(CodeModel model) throws Exception {
+    return mapper.deleteCode(model);
+  }
+
+  public int sortCode(int code, int sort) throws Exception {
+    return mapper.sortCode( code,  sort);
+  }
 }

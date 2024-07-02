@@ -17,7 +17,7 @@ spring:
 spring:
  datasource:
   driver-class-name: org.mariadb.jdbc.Driver
-  url: jdbc:mariadb://192.168.219.106:3306/atoz
+  url: jdbc:mariadb:// 192.168.219.106:3306/atoz
   username: atoz
   password: atoz9897
 
