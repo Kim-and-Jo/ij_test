@@ -23,21 +23,17 @@
                 <div class="fs-lg fw-300 p-4 bg-white border-faded rounded mb-2">
                     <div class="search-form">
                         <div class="float-left input-group">
-<!--                            <select class="custom-select" id="searchType" aria-label="Default select example">
-                                <option value="com_name" th:selected="${pageVO.cri.searchType=='com_name'}">회사명</option>
-                                <option value="use" th:selected="${pageVO.cri.searchType=='use'}">상태</option>
+                            <select class="custom-select" id="searchType" aria-label="Default select example">
+                                <option value="com_name" ${pageVO.cri.searchType == 'com_name'? 'selected' : '' }>기업명</option>
+                                <option value="use" ${pageVO.cri.searchType == 'use'? 'selected' : '' }>상태</option>
                             </select>
-                            <input type="text" class="form-control" placeholder="Search" id="searchName" th:value="*{searchName}">
+                            <input type="text" class="form-control" placeholder="Search" id="searchName" value="${pageVO.cri.searchName }">
                             <span class="input-group-append">
-                                <button class="btn btn-outline-dark" type="submit" id="button-addon2">
-                                    <i class="fal fa-search"></i>
-                                </button>
-                            </span> -->
+                                      <button class="btn btn-outline-dark" type="submit" id="button-addon2"><i class="fal fa-search"></i></button>
+                                    </span>
                         </div>
                         <div class="float-right">
-                            <button class="btn btn-primary" id="add-company-btn">
-                                <i class="fal fa-plus"></i> 기업등록
-                            </button>
+                            <button class="btn btn-primary" id="add-company-btn"><i class="fal fa-plus"></i> 기업등록</button>
                         </div>
                     </div>
 
