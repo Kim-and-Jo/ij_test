@@ -14,7 +14,6 @@ public class CompanyModel {
   private int userCnt;
   private int useBeaconCnt;
   private int used;
-  private String note;
   private String com_ci;
   private String ceo_name;
   private String ceo_phone;

@@ -1,64 +1,89 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AtoZSystem</title>
-  <link rel="icon" href="/sas/resources/images/atoz_logo_icon.png">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" th:href="@{/css/sas.css}" />
-  <link type="text/css" rel="stylesheet" th:href="@{/css/company/company.css}" />
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-  <div th:insert="~{header/page_header :: header}"></div>
-  <head th:insert="~{header/head :: head}"></head>
-
+    <meta charset="UTF-8">
+    <title>AtoZSystem</title>
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <head th:insert="~{header/head :: head}"></head>
 </head>
+<body class="mod-bg-1 mod-nav-link">
+<!-- BEGIN Page Wrapper -->
+<div class="page-wrapper">
+    <div class="page-inner">
+        <!-- BEGIN Left Aside -->
+        <!--<th:block th:insert="insert/system_menu :: system_menu"></th:block>-->
+        <!-- END Left Aside -->
+        <div class="page-content-wrapper">
+            <!-- BEGIN Page Header -->
+            <div th:insert="~{header/page_header :: header}"></div>
+            <!-- END Page Header -->
+            <!-- BEGIN Page Content -->
+            <!-- the #js-page-content id is needed for some plugins to initialize -->
+            <main id="js-page-content" role="main" class="page-content">
+                <div class="fs-lg fw-300 p-4 bg-white border-faded rounded mb-2">
+                    <div class="search-form">
+                        <div class="float-left input-group">
+<!--                            <select class="custom-select" id="searchType" aria-label="Default select example">
+                                <option value="com_name" th:selected="${pageVO.cri.searchType=='com_name'}">회사명</option>
+                                <option value="use" th:selected="${pageVO.cri.searchType=='use'}">상태</option>
+                            </select>
+                            <input type="text" class="form-control" placeholder="Search" id="searchName" th:value="*{searchName}">
+                            <span class="input-group-append">
+                                <button class="btn btn-outline-dark" type="submit" id="button-addon2">
+                                    <i class="fal fa-search"></i>
+                                </button>
+                            </span> -->
+                        </div>
+                        <div class="float-right">
+                            <button class="btn btn-primary" id="add-company-btn">
+                                <i class="fal fa-plus"></i> 기업등록
+                            </button>
+                        </div>
+                    </div>
 
-<body style="padding: 20px; font-size: 14px;">
-<div id="header"></div>
-<div id="data-space" style="padding-left: 5%; padding-right: 5%;">
-  <div style="display: flex; justify-content: space-between; align-items: baseline;">
-    <div style="display: flex; align-items: baseline;">
-      <a href="/system/company/companyInsert.do" class="btn btn-success" id="add-company-btn">+ 기업등록</a>
+                    <!-- table -->
+                    <div class="list_box">
+                        <p><i class="fal fa-list-ul"></i> 검색건수 <span class="point">${cnt}</span>건</p>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-center table-hover">
+                            <colgroup>
+                                <col style="width: 5%">
+                                <col style="width: 24%">
+                                <col style="width: 10%">
+                                <col style="width: 10%">
+                                <col style="width: 10%">
+                            </colgroup>
+                            <thead class="">
+                            <tr>
+                                <th class="col-001">NO.</th>
+                                <th class="col-002">회사명</th>
+                                <th class="col-003">사용자수</th>
+                                <th class="col-004">사용<br>비콘수</th>
+                                <th class="col-005">상태</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="company-item" th:each="company : ${companyList}"
+                                th:onclick="'window.location=\'/system/company/selectCompany.do?Num=' + ${company.num} + '\';'">
+                                <td class="company-number" th:text="${company.num}"></td>
+                                <td th:text="${company.com_name}"></td>
+                                <td th:text="${company.userCnt}"></td>
+                                <td th:text="${company.useBeaconCnt}"></td>
+                                <td>
+                                    <span th:text="${company.used == 1 ? '정상' : '중지'}"></span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!-- /table -->
+                    </div>
+                </div>
+        </div>
     </div>
-  </div>
-  <table class="table table-striped table-hover" style="text-align: center;">
-    <thead id="list-table-head">
-    <tr>
-      <td class="col-001">NO.</td>
-      <td class="col-002">회사고유번호<br>(C.P.N)</td>
-      <td class="col-003">회사명</td>
-      <td class="col-004">사용자수</td>
-      <td class="col-004">사용<br>비콘수</td>
-      <td class="col-005">상태</td> 
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="company-item" th:each="company : ${companyList}"
-        th:onclick="'window.location=\'/system/company/selectCompany.do?Num=' + ${company.num} + '\';'">
-      <td class="company-number" th:text="${company.num}"></td>
-      <td th:text="${company.com_number}"></td>
-      <td th:text="${company.com_name}"></td>
-      <td th:text="${company.userCnt}"></td>
-      <td th:text="${company.useBeaconCnt}"></td>
-      <td>
-        <span th:text="${company.used == 1 ? '정상' : '중지'}"></span>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <br>
-
-  <hr style="border: 1px #4472C4 solid; margin-bottom: 20px 0;">
-  <div id="detail-field"></div>
-</div>
-<script type="text/javascript" th:src="@{/js/company/company.js}"></script>
+    <!-- END Page Wrapper -->
+    <script src="/sas/ui/js/app.bundle.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script type="text/javascript" th:src="@{/js/system/company.js}"></script>
 </body>
 </html>

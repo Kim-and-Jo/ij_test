@@ -55,86 +55,69 @@
         <col style="width: 30%">
       </colgroup>
       <tbody>
-      <tr>
-        <th>NO
-        </th>
-        <td class="thead" id="detail-number">기업 등록</td>
-        <th colspan="2" class="thead">기업고유번호(C.P.N)</th>
-        <td class="table-input"><input type="text" class="form-control" name="com_number" maxlength="14"
-                                       placeholder="숫자만 입력해주세요." numberOnly required></td>
-      </tr>
-      <tr>
-        <th class="thead">기업명</th>
-        <td id="cpn-com-name" class="table-input"><input type="text" class="form-control" maxlength="20"
-                                                         name="com_name" required></td>
-        <th colspan="2" class="thead">대표자</th>
-        <td class="table-input"><input type="text" class="form-control company-code" maxlength="5"
-                                       name="ceo_name" required></td>
-      </tr>
-      <tr>
-        <th class="thead">연락처</th>
-        <td class="table-input"><input type="text" class="form-control" name="ceo_phone" maxlength="13"
-                                       required></td>
-        <th colspan="2" class="thead">E-Mail</th>
-        <td class="table-input"><input type="email" class="form-control company-code" name="ceo_email"
-                                       required></td>
-      </tr>
-      <tr>
-        <th class="thead">주소</th>
-        <td class="table-input"><input type="text" class="form-control address-input d-inline-block"
-                                       name="address1" maxlength="50" required>
-          <button type="button" class="btn btn-dark d-inline-block" id="address-search-btn">
-            <i class="ion ion-ios-search"></i> 주소 검색
-          </button>
-        </td>
-        <th class="thead" colspan="2">상세주소</th>
-        <td class="table-input"><input type="text" class="form-control" name="address2" maxlength="50"
-                                       required></td>
-
-      </tr>
-      <tr>
-        <th rowspan="3" class="table-input thead" style="vertical-align: middle; height:180px;">Logo</th>
-        <td rowspan="3" align="center" style="vertical-align: top;">
-          <div class="input-group">
-            <input class="form-control-file border" id="image-input" name="imgFile" type="file"
-                   required>
-            <div class="invalid-tooltip">Logo-필수 입력.</div>
-          </div>
-          <div id="image-container" style="height: 100px;">
-            <img id="company-ci" style="height:130px;margin-top:10px" alt=""
-                 th:src="@{/sas/image.do(fileName=noimg.png)}">
-          </div>
-        </td>
-        <th rowspan="2" class="thead">기업<br>관리자
-        </th>
-        <th class="thead">성명</th>
-        <td><input type="text" class="form-control" readonly="readonly" name="admin_name" maxlength="10"
-                   placeholder="기업 등록 후 진행가능."></td>
-      </tr>
-      <tr>
-        <th class="thead">아이디</th>
-        <td class="table-input"><input type="text" class="form-control" name="admin_id" maxlength="15"
-                                       readonly="readonly" placeholder="기업 등록 후 진행가능.">
-        </td>
-      </tr>
-      <tr>
-        <th colspan="2" class="thead">상태</th>
-        <td class="table-input">
-          <div class="demo">
-            <label class="switcher switcher-lg switcher-primary">
-              <input type="checkbox" class="switcher-input" checked name="used" value="1">
-              <span class="switcher-indicator">
+        <tr>
+          <th>NO</th>
+            <td class="thead" id="detail-number">기업 등록</td>
+            <th colspan="2" class="thead">기업명</th>
+            <td id="cpn-com-name" class="table-input"><input type="text" class="form-control" maxlength="20"
+                                                           name="com_name" required></td>
+        </tr>
+        <tr>
+          <th class="thead">대표자명</th>
+          <td class="table-input"><input type="text" class="form-control company-code" maxlength="5"
+                                         name="ceo_name" required></td>
+          <th colspan="2" class="thead">연락처</th>
+          <td class="table-input"><input type="text" class="form-control" name="ceo_phone" maxlength="13"
+                                         required></td>
+        </tr>
+        <tr>
+          <th class="thead">E-Mail</th>
+          <td class="table-input"><input type="email" class="form-control company-code" name="ceo_email"
+                                          required></td>
+          <th colspan="2" class="thead">상태</th>
+          <td class="table-input">
+            <div class="demo">
+              <label class="switcher switcher-lg switcher-primary">
+                <input type="checkbox" class="switcher-input" checked name="used" value="1">
+                <span class="switcher-indicator">
             <span class="switcher-yes"> 정상 </span>
             <span class="switcher-no"> 중지 </span>
               </span>
-            </label>
-          </div>
-        </td>
-      </tr>
+              </label>
+            </div>
+          </td>
 
+        </tr>
+        <tr>
+          <th class="thead">주소</th>
+          <td class="table-input"><input type="text" class="form-control address-input d-inline-block"
+                                         name="address1" maxlength="50" required>
+            <button type="button" class="btn btn-dark d-inline-block" id="address-search-btn">
+              <i class="ion ion-ios-search"></i> 주소 검색
+            </button>
+          </td>
+          <th class="thead" colspan="2">상세주소</th>
+          <td class="table-input"><input type="text" class="form-control" name="address2" maxlength="50"
+                                         required></td>
+        </tr>
+        <tr>
+          <th rowspan="3" class="table-input thead" style="vertical-align: middle; height:180px;">Logo</th>
+          <td rowspan="3" align="center" style="vertical-align: top;">
+            <div class="input-group">
+              <input class="form-control-file border" id="image-input" name="imgFile" type="file"
+                     required>
+              <div class="invalid-tooltip">Logo-필수 입력.</div>
+            </div>
+            <div id="image-container" style="height: 100px;">
+              <img id="company-ci" style="height:130px;margin-top:10px" alt=""
+                   th:src="@{/sas/image.do(fileName=noimg.png)}">
+            </div>
+          </td>
+          <td colspan="6" class="table-input"></td>
       </tbody>
     </table>
     <div class="text-right">
+      <button type="button" class="btn btn-primary" onclick="location.href='companyList.do'">목록</button>
       <button type="button" class="btn btn-primary" id="insert-company-btn">등록</button>
     </div>
   </div>

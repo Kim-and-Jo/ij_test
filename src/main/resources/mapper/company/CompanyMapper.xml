@@ -4,7 +4,7 @@
 <mapper namespace="atoz.company.mapper.CompanyMapper">
    <select id="selectCompanyList" resultType="atoz.company.model.CompanyModel">
        SELECT *
-       FROM `COMPANY_INFO_VIEW`
+       FROM `company_info`
        <!--WHERE 1=1
        <if test="searchName != null">
            <choose>
@@ -32,7 +32,7 @@
    </select>
 
     <select id="selectCompany" resultType="atoz.company.model.CompanyModel">
-        SELECT * from company_info_view WHERE num = #{num}
+        SELECT * from company_info WHERE num = #{num}
     </select>
 
     <insert id="insertComapny">
